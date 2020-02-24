@@ -1,13 +1,21 @@
 def main():
-    def operator():
+    def nameget():
         first = input("Enter your first name: ")
         last = input("Enter your last name: ")
-        username = first + last
+        return(first, last)
+    def namebuild(first, last):
+        return(first + "." + last)
+    def strengthcheck(password):
+        while len(password)<8:
+            print("Password too short.")
+            password = input("Pick a new password: ")
+        print("Valid password.")
+        return password
+    def operator():
+        first, last = nameget()
+        username = namebuild(first, last)
         password = input("Create a new password: ")
-        while False:
-            print("Fool of a Took! That password is feeble!")
-            password = input("Create a new password: ")
-        print("The force is strong with this one,,,")
-        print("Your email address is", username + "@marist.edu")
+        strengthcheck(password)
+        print("Your email adress is "+ username + "@marist.edu")
     operator()
 main()
